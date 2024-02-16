@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #545b75;
+  --primary-color-hover: #545b75;
+}
+
+@font-face {
+  font-family: ProtestRevolution;
+  src: url("../assets/fonts/ProtestRevolution-Regular.ttf");
+}
+
+* {
+  font-family: ProtestRevolution;
+}
+
+
+body {
+  color: var(--primary-color);
+  background-color: #353845;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* NAV LLINKS - NAVBAR / ADMIN / PROFILE */
+.nav-title {
+	font-size: 4.5vw !important;
+}
+.nav-link {
+	padding: 0.5rem;
+    font-size: 24px;
+	text-decoration: none !important;
+	color: var(--primary-color) !important;
+}
+
+.nav-link:hover,
+.nav-link.active,
+.nav-link:active,
+.nav-link:focus {
+	text-decoration: none !important;
+	color: var(--primary-color) !important;
+}
+
+.nav-link:hover,
+.nav-link.active,
+.nav-link:active,
+.nav-link:focus {
+	padding-bottom: calc(0.5rem - 3px);
+	border-bottom: 3px solid var(--primary-color) !important;
+}
+
+/* INPUTS & BUTTONS */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+.app-btn-primary,
+.app-btn-danger,
+.app-btn-search,
+.app-btn-inverted,
+.app-btn-disabled {
+	text-align: center;
+	border-radius: 4px;
+	text-decoration: none;
+	padding: 8px 12px !important;
+	min-width: auto !important;
+}
+
+/* PAGINATION BASE CSS */
+.pagination-btn {
+	padding: 0 6px !important;
+	min-width: 32px !important;
+}
+
+.app-btn-primary,
+.app-btn-danger {
+	color: var(--secondary-color) !important;
+	background-color: var(--primary-color) !important;
+}
+
+.app-btn-inverted {
+	color: var(--primary-color) !important;
+	background-color: transparent !important;
+}
+
+.app-btn-danger {
+	background-color: var(--danger-color) !important;
+}
+
+.app-btn-search {
+	color: var(--primary-color) !important;
+	border-color: var(--primary-color) !important;
+	background-color: var(--secondary-color) !important;
+}
+
+.app-btn-primary:hover,
+.app-btn-primary:focus {
+	text-decoration: none;
+	background-color: var(--primary-color-hover) !important;
+}
+
+.app-btn-inverted:hover,
+.app-btn-inverted:focus,
+.app-btn-inverted.active {
+	text-decoration: none;
+	background-color: var(--primary-color-hover) !important;
+}
+
+.app-btn-danger:hover,
+.app-btn-danger:focus {
+	text-decoration: none;
+	background-color: var(--danger-color-hover) !important;
+}
+
+.app-btn-search:hover,
+.app-btn-search:focus,
+.app-btn-search.Mui-selected {
+	text-decoration: none;
+	color: var(--secondary-color) !important;
+	background-color: var(--primary-color) !important;
+}
+
+.app-btn-primary:focus,
+.app-btn-danger:focus,
+.app-btn-search:focus {
+	outline: none !important;
+}
+
+.app-icon-btn {
+	background-color: none;
+}
+.app-icon-btn * {
+	margin-right: 0 !important;
+}
+.app-icon-btn:focus,
+.app-icon-btn:hover {
+	color: white !important;
+	background-color: var(--primary-color) !important;
+}
+
+.min-w {
+	min-width: 0 !important;
+}
+
+.min-h {
+	min-height: 0 !important;
+}

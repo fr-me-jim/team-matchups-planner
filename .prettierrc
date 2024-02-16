@@ -1,0 +1,9 @@
+{
+    "tabWidth": 2,
+    "useTabs": true,
+    "semi": true,
+    "printWidth": 80,
+    "bracketSpacing": true,
+    "max_line_lenght": 60,
+    "htmlWhitespaceSensitivity": "css"
+}
