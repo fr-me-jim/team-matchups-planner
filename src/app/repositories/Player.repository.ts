@@ -20,11 +20,13 @@ import type {
 import Player from "../models/Player.model";
 
 export default class PlayerRepository implements IPlayerRepository {
+	private baseDbPath: string;
 	private firestoreDB: Firestore;
 	private fsDataConverter: FirestoreDataConverter<Player>;
 	private collectionReference: CollectionReference<Player>;
 
 	constructor(firestoreDB: Firestore) {
+		this.baseDbPath = "players";
 		this.firestoreDB = firestoreDB;
 		this.fsDataConverter = {
 			toFirestore: (player: Player) => {
@@ -44,7 +46,7 @@ export default class PlayerRepository implements IPlayerRepository {
 		};
 		this.collectionReference = collection(
 			this.firestoreDB,
-			"players"
+			this.baseDbPath
 		).withConverter(this.fsDataConverter);
 	}
 

@@ -3,39 +3,50 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #ffffff;
-  --secondary-color: #545b75;
-  --primary-color-hover: #545b75;
+	--primary-color: #ffffff;
+	--secondary-color: #545b75;
+	--secondary-color-hover: #454a5f;
+	--secondary-color-light: #d6d8e1;
 }
 
 @font-face {
-  font-family: ProtestRevolution;
-  src: url("../assets/fonts/ProtestRevolution-Regular.ttf");
+	font-family: ProtestRevolution;
+	src: url("../assets/fonts/ProtestRevolution-Regular.ttf");
 }
 
 * {
-  font-family: ProtestRevolution;
+	font-family: ProtestRevolution;
 }
 
-
 body {
-  color: var(--primary-color);
-  background-color: #353845;
+	margin: 0;
+	min-height: 100vh;
+	color: var(--primary-color);
+	background-color: #353845;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
 }
 
-/* NAV LLINKS - NAVBAR / ADMIN / PROFILE */
+.swal2-modal {
+	color: var(--primary-color);
+	background-color: var(--secondary-color);
+}
+
+/* NAV LLINKS - NAVBAR */
+.nav-header-border {
+	border-bottom-width: 4px;
+	border-bottom-color: var(--secondary-color);
+}
 .nav-title {
 	font-size: 4.5vw !important;
 }
 .nav-link {
 	padding: 0.5rem;
-    font-size: 24px;
+	font-size: 24px;
 	text-decoration: none !important;
 	color: var(--primary-color) !important;
 }
@@ -63,9 +74,21 @@ input[type="number"]::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
 
+input::placeholder {
+	text-align: center;
+}
+
+.app-input {
+	text-align: center;
+	color: var(--secondary-color);
+	border: 1px solid var(--secondary-color);
+	background-color: var(--secondary-color-light);
+}
+
 .app-btn-primary,
 .app-btn-danger,
 .app-btn-search,
+.app-btn-secondary,
 .app-btn-inverted,
 .app-btn-disabled {
 	text-align: center;
@@ -85,6 +108,11 @@ input[type="number"]::-webkit-inner-spin-button {
 .app-btn-danger {
 	color: var(--secondary-color) !important;
 	background-color: var(--primary-color) !important;
+}
+
+.app-btn-secondary {
+	color: var(--primary-color) !important;
+	background-color: var(--secondary-color) !important;
 }
 
 .app-btn-inverted {
@@ -112,7 +140,13 @@ input[type="number"]::-webkit-inner-spin-button {
 .app-btn-inverted:focus,
 .app-btn-inverted.active {
 	text-decoration: none;
-	background-color: var(--primary-color-hover) !important;
+	background-color: var(--secondary-color) !important;
+}
+
+.app-btn-secondary:hover,
+.app-btn-secondary:focus {
+	text-decoration: none;
+	background-color: var(--secondary-color-hover) !important;
 }
 
 .app-btn-danger:hover,

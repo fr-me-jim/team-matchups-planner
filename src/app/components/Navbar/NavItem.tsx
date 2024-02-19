@@ -15,7 +15,7 @@ export default function NavItem({ navItemData }: INavItemProps) {
 	return (
 		<Link
 			href={navItemData.href}
-			className={`text-2xl font-semibold flex items-center app-btn-inverted ${isActiveStyle}`}
+			className={`text-2xl font-semibold flex items-center mt-2 app-btn-inverted ${isActiveStyle}`}
 			aria-current={isActive ? "page" : undefined}
 		>
 			{navItemData.name}

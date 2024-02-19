@@ -3,11 +3,13 @@
 import React from "react";
 import store from "src/store";
 import { Provider } from "react-redux";
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, Grid, ThemeProvider } from "@mui/material";
+
+// context
+import { DispatchProvider } from "../context/Dispatch.context";
 
 // components
 import Navbar from "../components/Navbar/Navbar";
-// import Footer from "../components/Footer/Footer";
 
 export default function generalLayout({
 	children,
@@ -29,13 +31,24 @@ export default function generalLayout({
 
 	return (
 		<Provider store={store}>
-            <ThemeProvider theme={materialTheme}>
-                <Navbar />
+			<ThemeProvider theme={materialTheme}>
+				<DispatchProvider>
+					<Navbar />
 
-                {children}
-
-                {/* <Footer /> */}
-            </ThemeProvider>
-        </Provider>
+					<Grid
+						container
+						item
+						xs={11}
+						md={10}
+						lg={7}
+						component={"main"}
+						justifyContent={"center"}
+						className="flex-1 lg:py-6 xs:py-2"
+					>
+						{children}
+					</Grid>
+				</DispatchProvider>
+			</ThemeProvider>
+		</Provider>
 	);
 }

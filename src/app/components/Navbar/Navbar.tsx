@@ -9,8 +9,9 @@ import Grid from "@mui/material/Grid";
 import brand from "src/app/assets/images/crow-nobackground-white-sm.png";
 
 const navigation = [
-	{ name: "Perfil", href: "/profile", current: false },
+	{ name: "Tools", href: "/tools", current: false },
 	{ name: "Jugadores", href: "/players", current: false },
+	{ name: "Login", href: "/login", current: false },
 ];
 
 export default function Navbar() {
@@ -29,16 +30,16 @@ export default function Navbar() {
 				md={10}
 				lg={7}
 				alignItems={"center"}
-				className="py-6"
+				className="py-6 nav-header-border"
 			>
 				<Grid item xs={12} md={6} justifyContent={"center"} className="flex">
-					<Link href="/" className="flex items-center space-y-2 space-x-6">
+					<Link href="/" className="flex items-center space-x-6">
 						<img
 							src={brand.src}
 							alt="web_logo"
 							className="md:w-[85px] w-[65px]"
 						/>
-						<span className="lg:text-[48px] md:text-[38px] text-[28px]">
+						<span className="lg:text-[48px] md:text-[38px] text-[28px] mt-2">
 							MatchUps Planner
 						</span>
 					</Link>
@@ -48,7 +49,7 @@ export default function Navbar() {
 					item
 					xs={12}
 					md={6}
-					className="inline-flex text-primary flex-1 justify-center space-x-6"
+					className="inline-flex text-primary flex-1 justify-end space-x-6"
 				>
 					{navigation.map((navItem) => (
 						<NavItem key={uuidv1()} navItemData={navItem} />
