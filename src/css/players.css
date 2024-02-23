@@ -1,0 +1,11 @@
+.player-box {
+	border-radius: 15px;
+	border: 1px solid;
+	border-color: var(--secondary-color-light);
+	background-color: var(--secondary-color);
+}
+
+.player-box:hover {
+	cursor: pointer;
+	background-color: var(--secondary-color-hover);
+}

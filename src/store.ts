@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 // root reducer
-import rootReducer from "src/app/redux/reducers/index.reducer";
+import rootReducer from "src/redux/reducers/index.reducer";
 
 const initialState = {};
 

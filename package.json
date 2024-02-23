@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
+    "@mui/icons-material": "^5.15.10",
     "@mui/material": "^5.15.10",
     "@reduxjs/toolkit": "^2.2.0",
     "bcryptjs": "^2.4.3",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
+    "@types/lodash": "^4.14.202",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

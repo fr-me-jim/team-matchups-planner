@@ -2,9 +2,9 @@ import React from "react";
 
 // components
 import Grid from "@mui/material/Grid";
-import LoginForm from "src/components/Auth/LoginForm";
+import SigninForm from "src/components/Auth/SigninForm";
 
-export default function Login() {
+export default function Signin() {
 	return (
 		<Grid
 			container
@@ -16,7 +16,7 @@ export default function Login() {
 			justifyContent={"center"}
 			className="md:items-start"
 		>
-			<LoginForm />
+			<SigninForm />
 		</Grid>
 	);
 }

@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
 
-// assets
-import "src/app/css/globals.css";
-import { Inter } from "next/font/google";
+// components
 import Grid from "@mui/material/Grid";
+
+// assets
+import "src/css/globals.css";
+import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +33,8 @@ export default function RootLayout({
 				container
 				component={"body"}
 				direction={"column"}
-				className={`${inter.className} space-y-8`}
+				alignItems={"center"}
+				className={`${inter.className} md:space-y-8 space-y-0`}
 			>
 				{children}
 			</Grid>

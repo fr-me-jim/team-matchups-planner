@@ -1,21 +1,31 @@
 "use client";
 
-import React from "react";
 import store from "src/store";
+import { useEffect } from "react";
 import { Provider } from "react-redux";
+import { useCookies } from "react-cookie";
 import { createTheme, Grid, ThemeProvider } from "@mui/material";
 
 // context
-import { DispatchProvider } from "../context/Dispatch.context";
+import {
+	DispatchProvider,
+	useDispatchContext,
+} from "../../context/Dispatch.context";
 
 // components
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 
-export default function generalLayout({
+export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
+	// state
+	const [cookies] = useCookies();
+
+	// context
+	const loginFromSession = useDispatchContext().AuthDispatcher.loginFromSession;
+
 	const materialTheme = createTheme({
 		breakpoints: {
 			values: {
@@ -28,6 +38,14 @@ export default function generalLayout({
 			},
 		},
 	});
+
+	useEffect(() => {
+		const loginUserFromSession = () => {
+			loginFromSession(cookies.session);
+		};
+
+		if (cookies.session) loginUserFromSession();
+	}, [cookies.session, loginFromSession]);
 
 	return (
 		<Provider store={store}>
@@ -43,7 +61,7 @@ export default function generalLayout({
 						lg={7}
 						component={"main"}
 						justifyContent={"center"}
-						className="flex-1 lg:py-6 xs:py-2"
+						className="flex-1 lg:py-6 py-2"
 					>
 						{children}
 					</Grid>
