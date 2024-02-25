@@ -1,4 +1,4 @@
-import Player from "../models/Player.model";
+import { Player } from "./Player.interfaces";
 
 export type Team = Player[];
 
@@ -17,3 +17,9 @@ export interface IInlineInputProps
 		React.InputHTMLAttributes<HTMLInputElement>,
 		HTMLInputElement
 	> {}
+
+export interface IDeleteButtonProps {
+	player: Player;
+	className: string;
+	deleteAction: (params: any) => Promise<any>;
+}

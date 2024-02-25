@@ -5,7 +5,20 @@
 	background-color: var(--secondary-color);
 }
 
-.player-box:hover {
+.player-box-data {
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+.player-box-data:hover {
 	cursor: pointer;
 	background-color: var(--secondary-color-hover);
+}
+
+.form-modal {
+	border-radius: 20px;
+	background-color: var(--secondary-color-hover);
+}
+
+.form-modal .app-btn-secondary:hover {
+	background-color: var(--secondary-color-dark) !important;
 }

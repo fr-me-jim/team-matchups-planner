@@ -1,6 +1,4 @@
-import User from "../models/User.model";
-
-export interface IUser {
+export interface User {
 	id: string;
 	email: string;
 	// password: string;
@@ -35,13 +33,3 @@ export interface UserLoginFromSessionActionParams {
 }
 
 export interface UserSigninActionParams extends UserLoginActionParams {}
-
-export interface IUserRepository {
-	// getAllUsers(): Promise<User[]>;
-	// getAllUserUsers(userId: string): Promise<User[]>;
-	// getUserById(id: string): Promise<User | undefined>;
-	getUserByemail(email: string): Promise<User | undefined>;
-	// addUser(user: IAddUserData): Promise<User>;
-	// updateUser(UserId: string, User: IUser): IUser;
-	// deleteUser(UserId: string): string;
-}

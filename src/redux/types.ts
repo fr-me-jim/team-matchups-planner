@@ -7,3 +7,5 @@ export const LOGOUT_ACTION: string = `auth/logout`;
 // PLAYERS //
 export const GET_USER_PLAYERS: string = `players/getAllUserPlayers`;
 export const ADD_USER_PLAYERS: string = `players/addUserPlayers`;
+export const UPDATE_USER_PLAYER: string = `players/updateUserPlayer`;
+export const DELETE_USER_PLAYER: string = `players/deleteUserPlayer`;

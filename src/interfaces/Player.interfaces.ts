@@ -1,6 +1,4 @@
-import Player from "../models/Player.model";
-
-export interface IPlayer {
+export interface Player {
 	id: string;
 	name: string;
 	skillLevel: number;
@@ -13,14 +11,23 @@ export interface IAddPlayerData {
 	userId: string;
 }
 
+export interface IUpdatePlayerData {
+	name: string;
+	skillLevel: number;
+	userId: string;
+}
+
 export interface IPlayerRepository {
 	getAllPlayers(): Promise<Player[]>;
 	getAllUserPlayers(userId: string): Promise<Player[]>;
 	// getPlayerById(id: string): IPlayer;
 	addPlayer(player: IAddPlayerData): Promise<Player>;
 	addPlayerBulk(playerDataList: IAddPlayerData[]): Promise<Player[]>;
-	// updatePlayer(playerId: string, player: IPlayer): IPlayer;
-	// deletePlayer(playerId: string): string;
+	updatePlayer(
+		playerId: string,
+		newPlayerInfo: IUpdatePlayerData
+	): Promise<Player>;
+	deletePlayer(playerId: string): Promise<string>;
 }
 
 // redux
@@ -30,6 +37,11 @@ export interface IPlayersInitialState {
 	loading: boolean;
 	player: Player | null;
 	players: Player[];
+}
+
+export interface IUpdatePlayerAction {
+	playerId: string;
+	newPlayerInfo: IUpdatePlayerData;
 }
 
 export interface IAddPlayerProps {

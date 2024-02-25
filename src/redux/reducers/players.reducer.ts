@@ -46,7 +46,7 @@ const playersReducer: Slice<IPlayersInitialState> = createSlice({
 			}
 		);
 
-		// GET USER PLAYERS ACTION
+		// ADD USER PLAYERS ACTION
 		builder.addCase(
 			playersActions.addUserPlayersBulk.pending,
 			(state, _action) => {
@@ -68,6 +68,60 @@ const playersReducer: Slice<IPlayersInitialState> = createSlice({
 				state.error = false;
 				state.message = null;
 				state.players = [...state.players, ...action.payload];
+			}
+		);
+
+		// UPDATE USER PLAYER ACTION
+		builder.addCase(
+			playersActions.updateUserPlayer.pending,
+			(state, _action) => {
+				state.loading = true;
+			}
+		);
+		builder.addCase(
+			playersActions.updateUserPlayer.rejected,
+			(state, action) => {
+				state.loading = false;
+				state.error = true;
+				state.message = action.error.message || null;
+			}
+		);
+		builder.addCase(
+			playersActions.updateUserPlayer.fulfilled,
+			(state, action) => {
+				state.loading = false;
+				state.error = false;
+				state.message = null;
+				state.players = state.players.map((player) =>
+					player.id === action.payload.id ? action.payload : player
+				);
+			}
+		);
+
+		// DELETE USER PLAYER ACTION
+		builder.addCase(
+			playersActions.deleteUserPlayer.pending,
+			(state, _action) => {
+				state.loading = true;
+			}
+		);
+		builder.addCase(
+			playersActions.deleteUserPlayer.rejected,
+			(state, action) => {
+				state.loading = false;
+				state.error = true;
+				state.message = action.error.message || null;
+			}
+		);
+		builder.addCase(
+			playersActions.deleteUserPlayer.fulfilled,
+			(state, action) => {
+				state.loading = false;
+				state.error = false;
+				state.message = null;
+				state.players = state.players.filter(
+					(player) => player.id !== action.payload
+				);
 			}
 		);
 	},

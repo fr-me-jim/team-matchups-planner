@@ -11,7 +11,6 @@ export const useFetchUserPlayers = () => {
 
 	useEffect(() => {
 		const getAllUserPlayers = () => {
-			console.log("hi");
 			if (userData) getUserPlayers(userData.id);
 		};
 

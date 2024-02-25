@@ -1,8 +1,13 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
+import { useDispatchContext } from "src/context/Dispatch.context";
+
+// utils
+import { errorPopupModalHandler } from "src/utils/form.utils";
 
 // components
 import Grid from "@mui/material/Grid";
-import InlineInput from "../Input/InlineInput";
+import InlineInputText from "../Input/InlineInputText";
+import InlineInputNumber from "../Input/InlineInputNumber";
 
 // interfaces
 import type { IModalFormProps } from "src/interfaces/Player.interfaces";
@@ -15,8 +20,33 @@ export default function ModalForm({
 	const playerNameRef = useRef<HTMLInputElement>(null);
 	const playerSkillRef = useRef<HTMLInputElement>(null);
 
-	const handleSubmitSavePlayer = (event: React.FormEvent<HTMLFormElement>) => {
+	// context
+	const updateUserPlayer =
+		useDispatchContext().PlayersDispatcher.updateUserPlayer;
+
+	const handleSubmitSavePlayer = async (
+		event: React.FormEvent<HTMLFormElement>
+	) => {
 		event.preventDefault();
+
+		const name = playerNameRef.current?.value;
+		const skillLevel = Number(playerSkillRef.current?.value);
+		if (!name || !skillLevel || !name.trim() || isNaN(skillLevel)) {
+			return;
+		}
+
+		try {
+			await updateUserPlayer({
+				playerId: player.id,
+				newPlayerInfo: {
+					name,
+					skillLevel,
+					userId: player.userId,
+				},
+			});
+		} catch (error) {
+			return await errorPopupModalHandler(error as Error);
+		}
 
 		setIsOpen(!isOpen);
 	};
@@ -24,8 +54,10 @@ export default function ModalForm({
 	return (
 		<div
 			className={`${
-				!isOpen && "hidden"
-			} swal2-container swal2-center swal2-backdrop-show overflow-y-auto`}
+				!isOpen
+					? "hidden"
+					: "swal2-container swal2-center swal2-backdrop-show overflow-y-auto"
+			}`}
 		>
 			<Grid
 				component={"form"}
@@ -37,18 +69,16 @@ export default function ModalForm({
 				direction={"column"}
 				alignItems={"center"}
 				onSubmit={handleSubmitSavePlayer}
-				className="p-2 space-y-4 swal2-popup swal2-modal swal2-show"
+				className="form-modal p-2 space-y-4 swal2-popup swal2-modal swal2-show"
 			>
 				<h2 className="swal2-title"> Player Info </h2>
-				<InlineInput
-					type="text"
-					ref={playerNameRef}
+				<InlineInputText
 					name="edit-player-name"
 					placeholder="Hinata Shoyo"
 					defaultValue={player.name}
+					ref={playerNameRef}
 				/>
-				<InlineInput
-					type="number"
+				<InlineInputNumber
 					ref={playerSkillRef}
 					placeholder="1 - 100"
 					name="edit-player-skill"

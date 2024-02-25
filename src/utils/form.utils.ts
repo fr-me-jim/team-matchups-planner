@@ -36,10 +36,10 @@ export const errorPopupModalHandler = async (error: Error) => {
 	const match = (error as Error).message.match(regex);
 	const formatMsg = match && match[1].toString().replaceAll("-", " ");
 	const message = formatMsg && _.capitalize(formatMsg);
-	
+
 	return await Swal.fire({
 		icon: "error",
-		title: "Error",
+		titleText: "Error",
 		text: message || error.message || "Oops! Something went wrong.",
 		confirmButtonText: "Confirmar",
 		confirmButtonColor: "#2b6ca7",

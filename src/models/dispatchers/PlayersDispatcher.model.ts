@@ -3,7 +3,10 @@ import PlayersActions from "src/redux/actions/players.actions";
 
 // interfaces
 import type { AppDispatch } from "src/interfaces/redux.interfaces";
-import type { IAddPlayerData } from "src/interfaces/Player.interfaces";
+import type {
+	IAddPlayerData,
+	IUpdatePlayerAction,
+} from "src/interfaces/Player.interfaces";
 
 export default class PlayersDispatcher {
 	private dispatch: AppDispatch;
@@ -21,4 +24,10 @@ export default class PlayersDispatcher {
 		this.dispatch(
 			this.playersActions.addUserPlayersBulk(dispatchData)
 		).unwrap();
+
+	readonly updateUserPlayer = (dispatchData: IUpdatePlayerAction) =>
+		this.dispatch(this.playersActions.updateUserPlayer(dispatchData)).unwrap();
+
+	readonly deleteUserPlayer = (dispatchData: string) =>
+		this.dispatch(this.playersActions.deleteUserPlayer(dispatchData)).unwrap();
 }

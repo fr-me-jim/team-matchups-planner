@@ -5,6 +5,7 @@ import {
 	addDoc,
 	doc,
 	setDoc,
+	deleteDoc,
 	writeBatch,
 	query,
 	where,
@@ -15,10 +16,11 @@ import {
 	SnapshotOptions,
 } from "firebase/firestore";
 import type {
+	Player,
 	IAddPlayerData,
 	IPlayerRepository,
+	IUpdatePlayerData,
 } from "../interfaces/Player.interfaces";
-import Player from "../models/Player.model";
 
 export default class PlayerRepository implements IPlayerRepository {
 	private baseDbPath: string;
@@ -42,7 +44,7 @@ export default class PlayerRepository implements IPlayerRepository {
 				options: SnapshotOptions
 			): Player => {
 				const { name, skillLevel, userId } = snapshot.data(options);
-				return new Player({ id: snapshot.id, name, skillLevel, userId });
+				return { id: snapshot.id, name, skillLevel, userId };
 			},
 		};
 		this.collectionReference = collection(
@@ -79,7 +81,7 @@ export default class PlayerRepository implements IPlayerRepository {
 		try {
 			const playerDocRef = await addDoc(this.collectionReference, playerData);
 
-			return new Player({ id: playerDocRef.id, ...playerData });
+			return { id: playerDocRef.id, ...playerData };
 		} catch (error: unknown) {
 			throw new Error("Could not add new player.");
 		}
@@ -94,14 +96,12 @@ export default class PlayerRepository implements IPlayerRepository {
 				const id = uuid();
 				const docRef = doc(this.firestoreDB, this.baseDbPath, id);
 				batch.set(docRef, player);
-				players.push(
-					new Player({
-						id,
-						name: player.name,
-						skillLevel: player.skillLevel,
-						userId: player.userId,
-					})
-				);
+				players.push({
+					id,
+					name: player.name,
+					skillLevel: player.skillLevel,
+					userId: player.userId,
+				});
 			});
 
 			await batch.commit();
@@ -109,6 +109,34 @@ export default class PlayerRepository implements IPlayerRepository {
 			return players;
 		} catch (error: unknown) {
 			throw new Error("Could not add new players.");
+		}
+	}
+
+	async updatePlayer(
+		playerId: string,
+		newPlayerInfo: IUpdatePlayerData
+	): Promise<Player> {
+		try {
+			const { name, skillLevel, userId } = newPlayerInfo;
+			const docRef = doc(this.firestoreDB, this.baseDbPath, playerId);
+
+			await setDoc(docRef, newPlayerInfo);
+
+			return { id: playerId, name, skillLevel, userId };
+		} catch (error: unknown) {
+			throw new Error("Could not update player.");
+		}
+	}
+
+	async deletePlayer(playerId: string): Promise<string> {
+		try {
+			const docRef = doc(this.firestoreDB, this.baseDbPath, playerId);
+
+			await deleteDoc(docRef);
+
+			return playerId;
+		} catch (error: unknown) {
+			throw new Error("Could not delete player.");
 		}
 	}
 }

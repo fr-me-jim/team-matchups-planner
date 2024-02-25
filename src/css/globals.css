@@ -5,9 +5,10 @@
 :root {
 	--primary-color: #ffffff;
 	--secondary-color: #545b75;
+	--secondary-color-dark: #353845;
 	--secondary-color-hover: #454a5f;
 	--secondary-color-light: #d6d8e1;
-	--danger-color: #c5726e;
+	--danger-color: #924743;
 	--danger-color-hover: #6a3136;
 }
 
@@ -43,6 +44,14 @@ body {
 .swal2-modal {
 	color: var(--primary-color);
 	background-color: var(--secondary-color);
+}
+
+.swal2-cancel {
+	background-color: var(--danger-color) !important;
+}
+
+.swal2-cancel:hover {
+	background-color: var(--danger-color-hover);
 }
 
 /* NAV LLINKS - NAVBAR */
@@ -111,6 +120,7 @@ input::placeholder {
 	text-align: center;
 	text-decoration: none;
 	min-width: auto;
+	background-color: transparent;
 }
 
 /* PAGINATION BASE CSS */
