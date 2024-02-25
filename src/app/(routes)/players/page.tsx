@@ -21,13 +21,16 @@ export default function Players() {
 
 	return (
 		<Grid
+			container
 			item
 			xs={11}
 			md={10}
 			lg={8}
 			xl={9}
+			// gap={20}
+			// direction={"column"}
 			justifyContent={"center"}
-			className="md:space-y-32 space-y-10"
+			className="flex items-start md:gap-y-4 gap-y-16"
 		>
 			{error && !loading && (
 				<Grid item className="p-3">

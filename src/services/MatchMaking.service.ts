@@ -1,5 +1,5 @@
-import type Player from "../models/Player.model";
-import type { Team, IMatchUp } from "src/interfaces/app.interfaces";
+import type { Player } from "src/interfaces/Player.interfaces";
+import type { Team, MatchUp } from "src/interfaces/app.interfaces";
 
 function calcMatchSkillGap(firstTeam: Team, secondTeam: Team): number {
 	const firstTeamSkillGap = firstTeam.reduce(
@@ -18,7 +18,7 @@ function teamMatchMaking(
 	firstTeam: Team,
 	secondTeam: Team,
 	index: number,
-	matchups: IMatchUp[]
+	matchups: MatchUp[]
 ) {
 	if (index === players.length) {
 		// Check that the teams have at least players.length / 2 each.
@@ -48,8 +48,8 @@ function teamMatchMaking(
 	secondTeam.pop();
 }
 
-export function generateAllMatchupsService(players: Player[]): IMatchUp[] {
-	const matchups: IMatchUp[] = [];
+export function generateAllMatchupsService(players: Player[]): MatchUp[] {
+	const matchups: MatchUp[] = [];
 	teamMatchMaking(players, [], [], 0, matchups);
 	return matchups;
 }

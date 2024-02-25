@@ -20,7 +20,6 @@ import brand from "public/assets/images/crow-nobackground-white-sm.png";
 const navigation = [
 	{ name: "Signin", href: "/signin", requireAuth: false },
 	{ name: "Login", href: "/login", requireAuth: false },
-	{ name: "Tools", href: "/tools", requireAuth: true },
 	{ name: "Players", href: "/players", requireAuth: true },
 ];
 
@@ -61,16 +60,16 @@ export default function Navbar() {
 				xl={10}
 				xxl={7}
 				alignItems={"center"}
-				className="md:py-6 py-4 nav-header-border  space-y-4"
+				className="md:py-6 py-4 nav-header-border"
 			>
 				<Grid
 					item
 					xs={12}
 					lg={6}
 					justifyContent={"center"}
-					className="flex lg:justify-start"
+					className="lg:justify-start"
 				>
-					<Link href="/" className="flex items-center space-x-6">
+					<Link href="/" className="flex items-center gap-x-6">
 						<img
 							src={brand.src}
 							alt="web_logo"
@@ -86,7 +85,7 @@ export default function Navbar() {
 					item
 					xs={12}
 					lg={6}
-					className="inline-flex text-primary flex-1 lg:justify-end justify-center space-x-6"
+					className="inline-flex text-primary lg:justify-end justify-center gap-x-6"
 				>
 					{isAuthenticated
 						? navigation.map(

@@ -1,5 +1,5 @@
-import type Player from "src/models/Player.model";
-import type { IBalancedTeams, Team } from "src/interfaces/app.interfaces";
+import type { Player } from "src/interfaces/Player.interfaces";
+import type { BalancedTeams, Team } from "src/interfaces/app.interfaces";
 
 function calcTeamsSkillGap(teams: Team[]): number {
 	const teamSkillLevels = teams.map((team) =>
@@ -16,7 +16,7 @@ function generateTeams(
 	maxPlayersPerTeam: number,
 	playerIndex: number,
 	currentTeams: Team[]
-): IBalancedTeams[] {
+): BalancedTeams[] {
 	if (playerIndex === players.length) {
 		const skillGap = calcTeamsSkillGap(currentTeams);
 
@@ -25,7 +25,7 @@ function generateTeams(
 	}
 
 	const player = players[playerIndex];
-	let matchups: IBalancedTeams[] = [];
+	let matchups: BalancedTeams[] = [];
 
 	// Add player if not reached max players for team
 	currentTeams.forEach((team, index) => {
@@ -52,7 +52,7 @@ function generateTeams(
 export function generateBalancedTeamsService(
 	players: Player[],
 	maxPlayersPerTeam: number
-): IBalancedTeams[] {
+): BalancedTeams[] {
 	const balancedTeams = generateTeams(players, maxPlayersPerTeam, 0, []);
 	return balancedTeams.sort((prev, post) => prev.skillGap - post.skillGap);
 }

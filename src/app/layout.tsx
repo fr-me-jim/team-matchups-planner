@@ -30,11 +30,12 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<Grid
+				gap={8}
 				container
 				component={"body"}
 				direction={"column"}
 				alignItems={"center"}
-				className={`${inter.className} md:space-y-8 space-y-0`}
+				className={`${inter.className} md:py-8 py-0`}
 			>
 				{children}
 			</Grid>

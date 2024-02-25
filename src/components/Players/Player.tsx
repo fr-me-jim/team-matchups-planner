@@ -50,13 +50,6 @@ export default function Player({ player }: IPlayerProps) {
 					<p className="text-center min-w-[40px]">{player.skillLevel}</p>
 				</div>
 			</div>
-			{/* <button
-				type="button"
-				onClick={handleClickDeletePlayer}
-				className="app-icon-btn-danger px-1 mx-1 p-0"
-			>
-				<DeleteIcon sx={{ fontSize: 26 }} />
-			</button> */}
 			<DeleteButton
 				player={player}
 				deleteAction={deletePlayer}

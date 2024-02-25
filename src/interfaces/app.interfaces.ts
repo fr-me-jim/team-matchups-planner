@@ -2,12 +2,12 @@ import { Player } from "./Player.interfaces";
 
 export type Team = Player[];
 
-export interface IMatchUp {
+export interface MatchUp {
 	skillGap: number;
 	matchup: [Team, Team];
 }
 
-export interface IBalancedTeams {
+export interface BalancedTeams {
 	skillGap: number;
 	teams: Team[];
 }

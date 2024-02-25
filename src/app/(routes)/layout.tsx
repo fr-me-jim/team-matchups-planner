@@ -61,7 +61,7 @@ export default function RootLayout({
 						lg={7}
 						component={"main"}
 						justifyContent={"center"}
-						className="flex-1 lg:py-6 py-2"
+						className="flex-1 gap-y-[16] lg:py-6 py-2"
 					>
 						{children}
 					</Grid>

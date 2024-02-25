@@ -84,7 +84,7 @@ export default function PlayerAddForm() {
 			component={"section"}
 			alignItems={"center"}
 			justifyContent={"center"}
-			className="md:items-start md:space-y-8 space-y-4"
+			className="md:items-start gap-y-8"
 		>
 			<Grid container justifyContent={"center"}>
 				<h1 className="text-4xl">Add Players</h1>
@@ -99,7 +99,7 @@ export default function PlayerAddForm() {
 				xxl={8}
 				component={"form"}
 				justifyContent={"center"}
-				className="md:space-y-4 space-y-2"
+				className="gap-y-4"
 				onSubmit={onHandleSubmitAddPlayer}
 			>
 				<Grid
@@ -138,7 +138,7 @@ export default function PlayerAddForm() {
 					direction={"column"}
 					alignItems={"center"}
 					justifyContent={"center"}
-					className="space-y-4"
+					className="gap-y-4"
 				>
 					<Grid
 						container
