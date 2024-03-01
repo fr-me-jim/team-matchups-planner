@@ -1,6 +1,7 @@
 import { v1 as uuid } from "uuid";
 
 // components
+import Image from "next/image";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
@@ -23,8 +24,15 @@ export default function BalancedTeam({
 				className="bg-secondary flex flex-col items-center rainbow-box-inner gap-y-2 p-4"
 			>
 				<div className="flex w-[100%] justify-between items-center gap-x-2">
-					<div className="flex items-center gap-x-2">
-						<img src={brand.src} alt="logo_img" className="h-[50px]" />
+					<div className="flex relative items-center gap-x-2">
+						<Image
+							priority
+							width={41}
+							height={50}
+							src={brand.src}
+							alt="logo_img"
+							className="h-[50px]"
+						/>
 						<h1 className="text-3xl">Balanced Teams {index}</h1>
 					</div>
 

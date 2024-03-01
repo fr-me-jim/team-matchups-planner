@@ -12,7 +12,7 @@ import { useDispatchContext } from "src/context/Dispatch.context";
 import { Grid } from "@mui/material";
 import { errorPopupModalHandler } from "src/utils/form.utils";
 
-export default function signinForm() {
+export default function SigninForm() {
 	// state
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");

@@ -1,6 +1,7 @@
-import React from "react";
+import { v1 as uuid } from "uuid";
 
 // components
+import Image from "next/image";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
@@ -13,6 +14,7 @@ import type { IMatchupComponentProps } from "src/interfaces/Tools.interfaces";
 import brand from "public/assets/images/crow-nobackground-white-sm.png";
 
 export default function Matchup({ matchup, index }: IMatchupComponentProps) {
+	console.log(brand.src);
 	return (
 		<Grid item xs={12} lg={9} xl={8} xxl={5} className="rainbow-box">
 			<Paper
@@ -20,8 +22,15 @@ export default function Matchup({ matchup, index }: IMatchupComponentProps) {
 				className="bg-secondary flex flex-col items-center rainbow-box-inner gap-y-2 p-4"
 			>
 				<div className="flex w-[100%] justify-between items-center gap-x-2">
-					<div className="flex items-center gap-x-2">
-						<img src={brand.src} alt="logo_img" className="h-[50px]" />
+					<div className="flex relative items-center gap-x-2">
+						<Image
+							priority
+							width={41}
+							height={50}
+							src={brand.src}
+							alt="logo_img"
+							className="h-[50px]"
+						/>
 						<h1 className="text-3xl">Matchup {index}</h1>
 					</div>
 
@@ -33,6 +42,7 @@ export default function Matchup({ matchup, index }: IMatchupComponentProps) {
 				<Grid container justifyContent={"space-around"} className="gap-2">
 					{matchup.matchup.map((team, teamIndex) => (
 						<Grid
+							key={uuid()}
 							item
 							xs={12}
 							md={5}

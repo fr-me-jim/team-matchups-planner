@@ -25,7 +25,7 @@ export default function PlayerButton({
 		if (selected && !find(selectedPlayers, { ...player })) {
 			setSelectedPlayers([...selectedPlayers, player]);
 		}
-	}, [selected, selectedPlayers, setSelectedPlayers]);
+	}, [player, selected, selectedPlayers, setSelectedPlayers]);
 
 	useEffect(() => {
 		updateSelectedPlayers();

@@ -10,8 +10,9 @@ import { useDispatchContext } from "src/context/Dispatch.context";
 import { errorPopupModalHandler } from "src/utils/form.utils";
 
 // components
-import NavItem from "./NavItem";
 import Link from "next/link";
+import Image from "next/image";
+import NavItem from "./NavItem";
 import Grid from "@mui/material/Grid";
 
 // assets
@@ -70,10 +71,13 @@ export default function Navbar() {
 					className="flex lg:justify-start"
 				>
 					<Link href="/" className="flex items-center gap-x-6">
-						<img
+						<Image
+							priority
+							width={65}
+							height={65}
 							src={brand.src}
 							alt="web_logo"
-							className="md:w-[85px] w-[65px]"
+							className="md:w-[85px]"
 						/>
 						<span className="lg:text-[48px] md:text-[38px] text-[28px] mt-2">
 							MatchUps Planner
