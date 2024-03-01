@@ -14,7 +14,7 @@ export default function Login() {
 			lg={7}
 			alignItems={"center"}
 			justifyContent={"center"}
-			className="md:items-start"
+			className="items-start"
 		>
 			<LoginForm />
 		</Grid>

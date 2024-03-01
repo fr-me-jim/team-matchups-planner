@@ -1,0 +1,45 @@
+.tool-card {
+	border: 4px solid;
+	border-radius: 8px;
+	border-color: var(--secondary-color);
+	background-color: var(--secondary-color-dark);
+}
+
+.select-player {
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: 109px;
+}
+
+.selected {
+	background-color: var(--success-color) !important;
+}
+
+.selected:hover {
+	background-color: var(--success-color-hover) !important;
+}
+
+/* MATCHUP */
+
+.rainbow-box {
+	display: flex;
+	padding: 4px 0;
+	align-items: center;
+	justify-content: center;
+	border-radius: 30px;
+	background: linear-gradient(
+		to bottom right,
+		#8e22c0 0%,
+		#2069b8 25%,
+		#92c727 50%,
+		#daac2e 75%,
+		#b9106a 100%
+	);
+}
+
+.rainbow-box-inner {
+	border-radius: 30px;
+	color: var(--primary-color);
+	min-width: calc(100% - 8px);
+	min-height: calc(100% - 8px);
+}

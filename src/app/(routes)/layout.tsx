@@ -58,10 +58,11 @@ export default function RootLayout({
 						item
 						xs={11}
 						md={10}
-						lg={7}
+						lg={9}
+						xl={10}
 						component={"main"}
 						justifyContent={"center"}
-						className="flex-1 gap-y-[16] lg:py-6 py-2"
+						className="flex-1 gap-y-16 lg:py-6 py-2"
 					>
 						{children}
 					</Grid>

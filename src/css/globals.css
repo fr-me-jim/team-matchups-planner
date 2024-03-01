@@ -8,8 +8,11 @@
 	--secondary-color-dark: #353845;
 	--secondary-color-hover: #454a5f;
 	--secondary-color-light: #d6d8e1;
+	--disabled-color: #8890a8;
 	--danger-color: #924743;
 	--danger-color-hover: #6a3136;
+	--success-color: #267558;
+	--success-color-hover: #1e5e49;
 }
 
 @font-face {
@@ -28,7 +31,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	color: var(--primary-color);
-	background-color: #353845;
+	background-color: var(--secondary-color-dark);
 }
 
 @layer utilities {
@@ -113,7 +116,7 @@ input::placeholder {
 	border-radius: 4px;
 	text-decoration: none;
 	padding: 8px 12px;
-	min-width: auto !important;
+	/* min-width: auto; */
 }
 
 .app-btn-icon {
@@ -147,6 +150,10 @@ input::placeholder {
 
 .app-btn-danger {
 	background-color: var(--danger-color) !important;
+}
+
+.app-btn-success {
+	background-color: var(--success-color) !important;
 }
 
 .app-btn-search {
@@ -231,6 +238,18 @@ input::placeholder {
 
 .bg-secondary {
 	background-color: var(--secondary-color);
+}
+
+.bg-secondary-dark {
+	background-color: var(--secondary-color-dark);
+}
+
+.text-primary {
+	color: var(--primary-color);
+}
+
+.text-disabled {
+	color: var(--disabled-color);
 }
 
 .text-danger {

@@ -1,5 +1,5 @@
 import type { Player } from "src/interfaces/Player.interfaces";
-import type { Team, MatchUp } from "src/interfaces/app.interfaces";
+import type { Team, MatchUp } from "src/interfaces/Tools.interfaces";
 
 function calcMatchSkillGap(firstTeam: Team, secondTeam: Team): number {
 	const firstTeamSkillGap = firstTeam.reduce(
@@ -15,6 +15,7 @@ function calcMatchSkillGap(firstTeam: Team, secondTeam: Team): number {
 
 function teamMatchMaking(
 	players: Player[],
+	maxSkillGap: number,
 	firstTeam: Team,
 	secondTeam: Team,
 	index: number,
@@ -27,6 +28,10 @@ function teamMatchMaking(
 			firstTeam.length >= minPlayersPerTeam &&
 			secondTeam.length >= minPlayersPerTeam
 		) {
+			const skillGap = calcMatchSkillGap(firstTeam, secondTeam);
+
+			if (maxSkillGap && skillGap > maxSkillGap) return;
+
 			matchups.push({
 				matchup: [firstTeam.slice(), secondTeam.slice()],
 				skillGap: calcMatchSkillGap(firstTeam, secondTeam),
@@ -39,19 +44,38 @@ function teamMatchMaking(
 
 	// Try to add the player to the first team
 	firstTeam.push(currentPlayer);
-	teamMatchMaking(players, firstTeam, secondTeam, index + 1, matchups);
+	teamMatchMaking(
+		players,
+		maxSkillGap,
+		firstTeam,
+		secondTeam,
+		index + 1,
+		matchups
+	);
 	firstTeam.pop();
 
 	// Try to add the player to the second team
 	secondTeam.push(currentPlayer);
-	teamMatchMaking(players, firstTeam, secondTeam, index + 1, matchups);
+	teamMatchMaking(
+		players,
+		maxSkillGap,
+		firstTeam,
+		secondTeam,
+		index + 1,
+		matchups
+	);
 	secondTeam.pop();
 }
 
-export function generateAllMatchupsService(players: Player[]): MatchUp[] {
+export function generateAllMatchupsService(
+	players: Player[],
+	maxSkillGap: number
+): MatchUp[] {
+	if (players.length === 0) return [];
+
 	const matchups: MatchUp[] = [];
-	teamMatchMaking(players, [], [], 0, matchups);
-	return matchups;
+	teamMatchMaking(players, maxSkillGap, [], [], 0, matchups);
+	return matchups.sort((prev, post) => prev.skillGap - post.skillGap);
 }
 
 // Use Case:

@@ -73,8 +73,9 @@ export default function signinForm() {
 		<Grid
 			container
 			justifyContent={"center"}
+			alignItems={"flex-start"}
 			component={"section"}
-			className="md:space-y-10"
+			className="md:gap-y-10"
 		>
 			<Grid container justifyContent={"center"}>
 				<h1 className="text-4xl">Signin</h1>
@@ -91,10 +92,10 @@ export default function signinForm() {
 				direction={"column"}
 				component={"form"}
 				justifyContent={"center"}
-				className="space-y-8"
+				className="gap-y-8"
 				onSubmit={onFormSubmitsignin}
 			>
-				<div className="flex flex-col space-y-2">
+				<div className="flex flex-col gap-y-2">
 					<label htmlFor="signin-email" className="md:text-[28px] text-[20px]">
 						Email
 					</label>
@@ -107,7 +108,7 @@ export default function signinForm() {
 						className="border-solid rounded-md app-input font-semibold py-2 flex-1 text-xl"
 					/>
 				</div>
-				<div className="flex flex-col space-y-2">
+				<div className="flex flex-col gap-y-2">
 					<label htmlFor="signin-email" className="md:text-[28px] text-[20px]">
 						Password
 					</label>
@@ -119,7 +120,7 @@ export default function signinForm() {
 						className="border-solid rounded-md app-input font-semibold py-2 flex-2 text-xl"
 					/>
 				</div>
-				<div className="flex flex-col space-y-2">
+				<div className="flex flex-col gap-y-2">
 					<label htmlFor="signin-email" className="md:text-[28px] text-[20px]">
 						Repeat Password
 					</label>

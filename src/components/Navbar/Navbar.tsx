@@ -58,7 +58,7 @@ export default function Navbar() {
 				xs={11}
 				md={10}
 				xl={10}
-				xxl={7}
+				xxl={8}
 				alignItems={"center"}
 				className="md:py-6 py-4 nav-header-border"
 			>
@@ -67,7 +67,7 @@ export default function Navbar() {
 					xs={12}
 					lg={6}
 					justifyContent={"center"}
-					className="lg:justify-start"
+					className="flex lg:justify-start"
 				>
 					<Link href="/" className="flex items-center gap-x-6">
 						<img

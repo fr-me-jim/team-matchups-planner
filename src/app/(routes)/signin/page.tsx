@@ -14,7 +14,7 @@ export default function Signin() {
 			lg={7}
 			alignItems={"center"}
 			justifyContent={"center"}
-			className="md:items-start"
+			className="items-start"
 		>
 			<SigninForm />
 		</Grid>

@@ -5,12 +5,8 @@ import { useDispatchContext } from "src/context/Dispatch.context";
 // components
 import ModalForm from "./ModalForm";
 import Grid from "@mui/material/Grid";
-import DeleteIcon from "@mui/icons-material/Delete";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import SportsHandballIcon from "@mui/icons-material/SportsHandball";
-
-// utils
-import { errorPopupModalHandler } from "src/utils/form.utils";
 
 // interfaces
 import type { IPlayerProps } from "src/interfaces/Player.interfaces";

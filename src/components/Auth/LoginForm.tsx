@@ -42,7 +42,7 @@ export default function LoginForm() {
 		try {
 			const user = await login({ email, password });
 			setCookie("session", user, { path: "/" });
-			router.push("/players");
+			router.push("/");
 		} catch (error) {
 			return await errorPopupModalHandler(error as Error);
 		}
@@ -53,7 +53,7 @@ export default function LoginForm() {
 			container
 			justifyContent={"center"}
 			component={"section"}
-			className="space-y-10"
+			className="gap-y-10"
 		>
 			<Grid container justifyContent={"center"}>
 				<h1 className="text-4xl">Login</h1>
@@ -70,10 +70,10 @@ export default function LoginForm() {
 				direction={"column"}
 				component={"form"}
 				justifyContent={"center"}
-				className="space-y-8"
+				className="gap-y-8"
 				onSubmit={onFormSubmitLogin}
 			>
-				<div className="flex flex-col space-y-2">
+				<div className="flex flex-col gap-y-2">
 					<label htmlFor="login-email" className="text-[28px]">
 						Email
 					</label>
@@ -86,7 +86,7 @@ export default function LoginForm() {
 						className="border-solid rounded-md app-input font-semibold py-2 flex-1 text-xl"
 					/>
 				</div>
-				<div className="flex flex-col space-y-2">
+				<div className="flex flex-col gap-y-2">
 					<label htmlFor="login-email" className="text-[28px]">
 						Password
 					</label>

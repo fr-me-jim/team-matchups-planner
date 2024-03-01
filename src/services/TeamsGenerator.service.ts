@@ -1,5 +1,5 @@
 import type { Player } from "src/interfaces/Player.interfaces";
-import type { BalancedTeams, Team } from "src/interfaces/app.interfaces";
+import type { BalancedTeams, Team } from "src/interfaces/Tools.interfaces";
 
 function calcTeamsSkillGap(teams: Team[]): number {
 	const teamSkillLevels = teams.map((team) =>
@@ -13,6 +13,7 @@ function calcTeamsSkillGap(teams: Team[]): number {
 
 function generateTeams(
 	players: Player[],
+	maxSkillGap: number,
 	maxPlayersPerTeam: number,
 	playerIndex: number,
 	currentTeams: Team[]
@@ -20,7 +21,7 @@ function generateTeams(
 	if (playerIndex === players.length) {
 		const skillGap = calcTeamsSkillGap(currentTeams);
 
-		if (skillGap > 15) return [];
+		if (maxSkillGap && skillGap > maxSkillGap) return [];
 		return [{ teams: currentTeams, skillGap }];
 	}
 
@@ -33,7 +34,13 @@ function generateTeams(
 			const newTeams = currentTeams.slice();
 			newTeams[index] = team.concat(player);
 			matchups = matchups.concat(
-				generateTeams(players, maxPlayersPerTeam, playerIndex + 1, newTeams)
+				generateTeams(
+					players,
+					maxSkillGap,
+					maxPlayersPerTeam,
+					playerIndex + 1,
+					newTeams
+				)
 			);
 		}
 	});
@@ -42,7 +49,13 @@ function generateTeams(
 	if (currentTeams.length < players.length / maxPlayersPerTeam) {
 		const newTeams = currentTeams.concat([[player]]);
 		matchups = matchups.concat(
-			generateTeams(players, maxPlayersPerTeam, playerIndex + 1, newTeams)
+			generateTeams(
+				players,
+				maxSkillGap,
+				maxPlayersPerTeam,
+				playerIndex + 1,
+				newTeams
+			)
 		);
 	}
 
@@ -51,8 +64,15 @@ function generateTeams(
 
 export function generateBalancedTeamsService(
 	players: Player[],
+	maxSkillGap: number,
 	maxPlayersPerTeam: number
 ): BalancedTeams[] {
-	const balancedTeams = generateTeams(players, maxPlayersPerTeam, 0, []);
+	const balancedTeams = generateTeams(
+		players,
+		maxSkillGap,
+		maxPlayersPerTeam,
+		0,
+		[]
+	);
 	return balancedTeams.sort((prev, post) => prev.skillGap - post.skillGap);
 }

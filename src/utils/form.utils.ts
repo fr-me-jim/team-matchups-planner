@@ -31,6 +31,16 @@ export const allowIntervalInputValue = (
 	}
 };
 
+export const infoPopupModalHandler = async (title: string, message: string) => {
+	return await Swal.fire({
+		icon: "info",
+		titleText: title,
+		text: message,
+		confirmButtonText: "Confirmar",
+		confirmButtonColor: "#2b6ca7",
+	});
+};
+
 export const errorPopupModalHandler = async (error: Error) => {
 	const regex = /auth\/(.*?)\)/;
 	const match = (error as Error).message.match(regex);
