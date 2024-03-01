@@ -4,6 +4,7 @@ import store from "src/store";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
 import { useCookies } from "react-cookie";
+import { StyledEngineProvider } from "@mui/material/styles";
 import { createTheme, Grid, ThemeProvider } from "@mui/material";
 
 // context
@@ -49,25 +50,27 @@ export default function RootLayout({
 
 	return (
 		<Provider store={store}>
-			<ThemeProvider theme={materialTheme}>
-				<DispatchProvider>
-					<Navbar />
+			<StyledEngineProvider injectFirst>
+				<ThemeProvider theme={materialTheme}>
+					<DispatchProvider>
+						<Navbar />
 
-					<Grid
-						container
-						item
-						xs={11}
-						md={10}
-						lg={9}
-						xl={10}
-						component={"main"}
-						justifyContent={"center"}
-						className="flex-1 gap-y-16 lg:py-6 py-2"
-					>
-						{children}
-					</Grid>
-				</DispatchProvider>
-			</ThemeProvider>
+						<Grid
+							container
+							item
+							xs={11}
+							md={10}
+							lg={9}
+							xl={10}
+							component={"main"}
+							justifyContent={"center"}
+							className="flex-1 gap-y-16 lg:py-6 py-2"
+						>
+							{children}
+						</Grid>
+					</DispatchProvider>
+				</ThemeProvider>
+			</StyledEngineProvider>
 		</Provider>
 	);
 }

@@ -5,12 +5,12 @@ import { useDispatchContext } from "src/context/Dispatch.context";
 // components
 import ModalForm from "./ModalForm";
 import Grid from "@mui/material/Grid";
+import DeleteButton from "../Button/DeleteButton";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import SportsHandballIcon from "@mui/icons-material/SportsHandball";
 
 // interfaces
 import type { IPlayerProps } from "src/interfaces/Player.interfaces";
-import DeleteButton from "../Button/DeleteButton";
 
 export default function Player({ player }: IPlayerProps) {
 	// state
@@ -26,9 +26,8 @@ export default function Player({ player }: IPlayerProps) {
 			xs={10}
 			sm={5}
 			md={5}
-			lg={6}
-			xl={5}
-			xxl={3}
+			lg={4}
+			xl={3}
 			alignItems={"center"}
 			justifyContent={"space-between"}
 			className="text-[24px] player-box"

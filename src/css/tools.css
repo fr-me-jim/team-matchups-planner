@@ -12,11 +12,11 @@
 }
 
 .selected {
-	background-color: var(--success-color) !important;
+	background-color: var(--success-color);
 }
 
 .selected:hover {
-	background-color: var(--success-color-hover) !important;
+	background-color: var(--success-color-hover);
 }
 
 /* MATCHUP */

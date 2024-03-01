@@ -20,5 +20,5 @@
 }
 
 .form-modal .app-btn-secondary:hover {
-	background-color: var(--secondary-color-dark) !important;
+	background-color: var(--secondary-color-dark);
 }
