@@ -26,7 +26,7 @@
 
 body {
 	margin: 0;
-	padding: 0 !important;
+	padding: 0;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -41,7 +41,7 @@ body {
 }
 
 .swal2-container {
-	margin: 0 !important;
+	margin: 0;
 }
 
 .swal2-modal {
@@ -50,7 +50,7 @@ body {
 }
 
 .swal2-cancel {
-	background-color: var(--danger-color) !important;
+	background-color: var(--danger-color);
 }
 
 .swal2-cancel:hover {
@@ -63,21 +63,21 @@ body {
 	border-bottom-color: var(--secondary-color);
 }
 .nav-title {
-	font-size: 4.5vw !important;
+	font-size: 4.5vw;
 }
 .nav-link {
 	padding: 0.5rem;
 	font-size: 24px;
-	text-decoration: none !important;
-	color: var(--primary-color) !important;
+	text-decoration: none;
+	color: var(--primary-color);
 }
 
 .nav-link:hover,
 .nav-link.active,
 .nav-link:active,
 .nav-link:focus {
-	text-decoration: none !important;
-	color: var(--primary-color) !important;
+	text-decoration: none;
+	color: var(--primary-color);
 }
 
 .nav-link:hover,
@@ -85,7 +85,7 @@ body {
 .nav-link:active,
 .nav-link:focus {
 	padding-bottom: calc(0.5rem - 3px);
-	border-bottom: 3px solid var(--primary-color) !important;
+	border-bottom: 3px solid var(--primary-color);
 }
 
 /* INPUTS & BUTTONS */
@@ -128,89 +128,89 @@ input::placeholder {
 
 /* PAGINATION BASE CSS */
 .pagination-btn {
-	padding: 0 6px !important;
-	min-width: 32px !important;
+	padding: 0 6px;
+	min-width: 32px;
 }
 
 .app-btn-primary,
 .app-btn-danger {
-	color: var(--secondary-color) !important;
-	background-color: var(--primary-color) !important;
+	color: var(--secondary-color);
+	background-color: var(--primary-color);
 }
 
 .app-btn-secondary {
-	color: var(--primary-color) !important;
-	background-color: var(--secondary-color) !important;
+	color: var(--primary-color);
+	background-color: var(--secondary-color);
 }
 
 .app-btn-inverted {
-	color: var(--primary-color) !important;
-	background-color: transparent !important;
+	color: var(--primary-color);
+	background-color: transparent;
 }
 
 .app-btn-danger {
-	background-color: var(--danger-color) !important;
+	background-color: var(--danger-color);
 }
 
 .app-btn-success {
-	background-color: var(--success-color) !important;
+	background-color: var(--success-color);
 }
 
 .app-btn-search {
-	color: var(--primary-color) !important;
-	border-color: var(--primary-color) !important;
-	background-color: var(--secondary-color) !important;
+	color: var(--primary-color);
+	border-color: var(--primary-color);
+	background-color: var(--secondary-color);
 }
 
 .app-btn-primary:hover,
 .app-btn-primary:focus {
 	text-decoration: none;
-	background-color: var(--primary-color-hover) !important;
+	background-color: var(--primary-color-hover);
 }
 
 .app-btn-inverted:hover,
 .app-btn-inverted:focus,
 .app-btn-inverted.active {
 	text-decoration: none;
-	background-color: var(--secondary-color) !important;
+	background-color: var(--secondary-color);
 }
 
 .app-btn-secondary:hover,
 .app-btn-secondary:focus {
 	text-decoration: none;
-	background-color: var(--secondary-color-hover) !important;
+	background-color: var(--secondary-color-hover);
 }
 
 .app-btn-danger:hover,
 .app-btn-danger:focus {
 	text-decoration: none;
-	background-color: var(--danger-color-hover) !important;
+	background-color: var(--danger-color-hover);
 }
 
 .app-btn-search:hover,
 .app-btn-search:focus,
 .app-btn-search.Mui-selected {
 	text-decoration: none;
-	color: var(--secondary-color) !important;
-	background-color: var(--primary-color) !important;
+	color: var(--secondary-color);
+	background-color: var(--primary-color);
 }
 
 .app-btn-primary:focus,
 .app-btn-danger:focus,
 .app-btn-search:focus {
-	outline: none !important;
+	outline: none;
 }
 
 .app-icon-btn {
 	background-color: none;
 }
 .app-icon-btn * {
-	margin-right: 0 !important;
+	margin-right: 0;
 }
 .app-icon-btn:focus,
 .app-icon-btn:hover {
-	color: white !important;
-	background-color: var(--primary-color) !important;
+	color: white;
+	background-color: var(--primary-color);
 }
 
 .app-icon-btn-danger {
@@ -223,11 +223,11 @@ input::placeholder {
 }
 
 .min-w {
-	min-width: 0 !important;
+	min-width: 0;
 }
 
 .min-h {
-	min-height: 0 !important;
+	min-height: 0;
 }
 
 /* UTILS */

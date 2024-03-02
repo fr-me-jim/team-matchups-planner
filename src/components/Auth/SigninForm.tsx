@@ -63,7 +63,7 @@ export default function SigninForm() {
 		try {
 			const user = await signin({ email, password });
 			setCookie("session", user, { path: "/" });
-			router.push("/players");
+			router.push("/");
 		} catch (error) {
 			return await errorPopupModalHandler(error as Error);
 		}

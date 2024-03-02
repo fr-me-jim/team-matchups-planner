@@ -20,7 +20,7 @@ export function middleware(request: NextRequest) {
 			request.nextUrl.pathname.startsWith("/signin")) &&
 		request.cookies.has("session")
 	) {
-		return NextResponse.redirect(new URL("/players", request.url));
+		return NextResponse.redirect(new URL("/", request.url));
 	}
 
 	return NextResponse.next();

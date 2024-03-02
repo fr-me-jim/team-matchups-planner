@@ -83,7 +83,7 @@ export default function MatchUpsWrapper() {
 				justifyContent={"space-between"}
 				className="gap-x-2"
 			>
-				<Grid xs={12} md={6} className="flex flex-col gap-y-4">
+				<Grid item xs={12} md={6} className="flex flex-col gap-y-4">
 					<h3 className="text-2xl flex-1">Select max skill gap (optional):</h3>
 					<InlineInputNumber
 						name="max-skill-gap"

@@ -17,7 +17,7 @@ export default function PlayerSelection({
 	const { players } = useAppSelector((state) => state.players);
 
 	return (
-		<Grid container className="gap-x-4 gap-y-4 md:justify-start justify-around">
+		<Grid container className="gap-x-4 gap-y-4 lg:justify-start justify-around">
 			{!players.length ? (
 				<Grid container item xs={12} justifyContent={"center"}>
 					<p className="text-xl italic text-disabled">No players configured.</p>
