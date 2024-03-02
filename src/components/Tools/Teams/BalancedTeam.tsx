@@ -33,7 +33,7 @@ export default function BalancedTeam({
 							alt="logo_img"
 							className="h-[50px]"
 						/>
-						<h1 className="text-3xl">Balanced Team {index}</h1>
+						<h1 className="text-3xl">Balanced Teams {index}</h1>
 					</div>
 
 					<h1 className="text-xl text-primary">
