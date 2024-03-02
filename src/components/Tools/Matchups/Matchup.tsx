@@ -14,7 +14,6 @@ import type { IMatchupComponentProps } from "src/interfaces/Tools.interfaces";
 import brand from "public/assets/images/crow-nobackground-white-sm.png";
 
 export default function Matchup({ matchup, index }: IMatchupComponentProps) {
-	console.log(brand.src);
 	return (
 		<Grid item xs={12} lg={9} xl={8} xxl={5} className="rainbow-box">
 			<Paper
