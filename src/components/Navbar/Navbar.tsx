@@ -72,7 +72,7 @@ export default function Navbar() {
 				>
 					<Link href="/" className="flex items-center gap-x-6">
 						<Image
-							priority
+							priority={true}
 							width={65}
 							height={65}
 							src={brand.src}

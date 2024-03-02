@@ -23,7 +23,7 @@ export default function Matchup({ matchup, index }: IMatchupComponentProps) {
 				<div className="flex w-[100%] justify-between items-center gap-x-2">
 					<div className="flex relative items-center gap-x-2">
 						<Image
-							priority
+							priority={true}
 							width={41}
 							height={50}
 							src={brand.src}
