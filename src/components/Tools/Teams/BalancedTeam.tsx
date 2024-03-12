@@ -41,14 +41,11 @@ export default function BalancedTeam({
 					</h1>
 				</div>
 				<Divider className="w-[100%] border-2" />
-				<Grid container justifyContent={"space-around"} className="gap-2">
+				<Grid container justifyContent={"space-around"} className="gap-6">
 					{balancedTeam.teams.map((team, teamIndex) => (
 						<Grid
 							key={uuid()}
-							item
-							xs={12}
-							md={5}
-							className="flex flex-col rounded-[10px] items-center gap-y-2 bg-secondary-dark py-3"
+							className="flex flex-1 flex-col rounded-[10px] items-center gap-y-2 bg-secondary-dark py-3"
 						>
 							<h1 className="text-2xl text-primary">Team {teamIndex + 1}</h1>
 

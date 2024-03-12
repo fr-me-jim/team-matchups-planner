@@ -105,7 +105,11 @@ export default function MatchUpsWrapper() {
 			) : null}
 
 			{matchups.length ? (
-				<Grid container justifyContent={"space-around"} className="gap-y-4">
+				<Grid
+					container
+					justifyContent={"space-around"}
+					className="gap-x-2 gap-y-4"
+				>
 					{matchups.map((matchup, index) => (
 						<Matchup key={uuid()} index={index + 1} matchup={matchup} />
 					))}

@@ -70,7 +70,7 @@ export function generateBalancedTeamsService(
 	const balancedTeams = generateTeams(
 		players,
 		maxSkillGap,
-		maxPlayersPerTeam,
+		maxPlayersPerTeam || players.length / 2,
 		0,
 		[]
 	);

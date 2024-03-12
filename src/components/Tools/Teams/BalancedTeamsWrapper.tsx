@@ -32,8 +32,8 @@ export default function BalancedTeamsWrapper() {
 	useFetchUserPlayers();
 
 	// state
-	const [maxTeamSize, setMaxTeamSize] = useState<number>(1);
 	const [maxSkillGap, setMaxSkillGap] = useState<number>(0);
+	const [maxTeamSize, setMaxTeamSize] = useState<number>(0);
 	const [balancedTeams, setBalancedTeams] = useState<BalancedTeams[]>([]);
 	const [selectedPlayers, setSelectedPlayers] = useState<Player[]>([]);
 

@@ -15,7 +15,7 @@ import brand from "public/assets/images/crow-nobackground-white-sm.png";
 
 export default function Matchup({ matchup, index }: IMatchupComponentProps) {
 	return (
-		<Grid item xs={12} lg={9} xl={8} xxl={5} className="rainbow-box">
+		<Grid item xs={12} lg={9} xl={5} xxl={4} className="rainbow-box">
 			<Paper
 				elevation={3}
 				className="bg-secondary flex flex-col items-center rainbow-box-inner gap-y-2 p-4"
@@ -42,10 +42,7 @@ export default function Matchup({ matchup, index }: IMatchupComponentProps) {
 					{matchup.matchup.map((team, teamIndex) => (
 						<Grid
 							key={uuid()}
-							item
-							xs={12}
-							md={5}
-							className="flex flex-col rounded-[10px] items-center gap-y-2 bg-secondary-dark py-3"
+							className="flex flex-1 flex-col rounded-[10px] items-center gap-y-2 bg-secondary-dark py-3"
 						>
 							<h1 className="text-2xl text-primary">Team {teamIndex + 1}</h1>
 
