@@ -118,7 +118,7 @@ export default function BalancedTeamsWrapper() {
 			) : null}
 
 			{balancedTeams.length ? (
-				<Grid container justifyContent={"space-around"} className="gap-y-4">
+				<Grid container justifyContent={"space-around"} className="gap-4">
 					{balancedTeams.map((balancedTeam, index) => (
 						<BalancedTeam
 							key={uuid()}

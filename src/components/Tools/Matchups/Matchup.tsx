@@ -42,7 +42,9 @@ export default function Matchup({ matchup, index }: IMatchupComponentProps) {
 					{matchup.matchup.map((team, teamIndex) => (
 						<Grid
 							key={uuid()}
-							className="flex flex-1 flex-col rounded-[10px] items-center gap-y-2 bg-secondary-dark py-3"
+							item
+							xs={12}
+							className="flex md:flex-1 flex-col rounded-[10px] items-center gap-y-2 bg-secondary-dark py-3"
 						>
 							<h1 className="text-2xl text-primary">Team {teamIndex + 1}</h1>
 

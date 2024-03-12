@@ -18,7 +18,7 @@ export default function BalancedTeam({
 	index,
 }: IBalancedTeamComponentProps) {
 	return (
-		<Grid item xs={12} lg={9} xl={8} xxl={5} className="rainbow-box">
+		<Grid item xs={12} lg={10} xl={8} xxl={6} className="rainbow-box">
 			<Paper
 				elevation={3}
 				className="bg-secondary flex flex-col items-center rainbow-box-inner gap-y-2 p-4"
@@ -45,7 +45,9 @@ export default function BalancedTeam({
 					{balancedTeam.teams.map((team, teamIndex) => (
 						<Grid
 							key={uuid()}
-							className="flex flex-1 flex-col rounded-[10px] items-center gap-y-2 bg-secondary-dark py-3"
+							item
+							xs={12}
+							className="flex md:basis-[255px] flex-col rounded-[10px] items-center gap-y-2 bg-secondary-dark py-3"
 						>
 							<h1 className="text-2xl text-primary">Team {teamIndex + 1}</h1>
 
