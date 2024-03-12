@@ -18,7 +18,7 @@ export default function BalancedTeam({
 	index,
 }: IBalancedTeamComponentProps) {
 	return (
-		<Grid item xs={12} lg={10} xl={8} xxl={6} className="rainbow-box">
+		<Grid item xs={12} lg={10} xl={8} xxl={7} className="rainbow-box">
 			<Paper
 				elevation={3}
 				className="bg-secondary flex flex-col items-center rainbow-box-inner gap-y-2 p-4"
