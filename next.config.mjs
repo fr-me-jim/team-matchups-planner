@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+	images: {
+		domains: ["matchupsplanner.netlify.app"],
+	},
+};
 
 export default nextConfig;
