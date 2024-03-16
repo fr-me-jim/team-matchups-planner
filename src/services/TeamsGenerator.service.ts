@@ -1,3 +1,6 @@
+import { shuffle } from "lodash";
+
+// interfaces
 import type { Player } from "src/interfaces/Player.interfaces";
 import type { BalancedTeams, Team } from "src/interfaces/Tools.interfaces";
 
@@ -26,14 +29,14 @@ function generateTeams(
 	}
 
 	const player = players[playerIndex];
-	let matchups: BalancedTeams[] = [];
+	let balancedTeams: BalancedTeams[] = [];
 
 	// Add player if not reached max players for team
 	currentTeams.forEach((team, index) => {
 		if (team.length < maxPlayersPerTeam) {
 			const newTeams = currentTeams.slice();
 			newTeams[index] = team.concat(player);
-			matchups = matchups.concat(
+			balancedTeams = balancedTeams.concat(
 				generateTeams(
 					players,
 					maxSkillGap,
@@ -45,10 +48,12 @@ function generateTeams(
 		}
 	});
 
+	if (balancedTeams.length > 20) return balancedTeams;
+
 	// Create new team with player
 	if (currentTeams.length < players.length / maxPlayersPerTeam) {
 		const newTeams = currentTeams.concat([[player]]);
-		matchups = matchups.concat(
+		balancedTeams = balancedTeams.concat(
 			generateTeams(
 				players,
 				maxSkillGap,
@@ -59,7 +64,7 @@ function generateTeams(
 		);
 	}
 
-	return matchups;
+	return balancedTeams;
 }
 
 export function generateBalancedTeamsService(
@@ -68,7 +73,7 @@ export function generateBalancedTeamsService(
 	maxPlayersPerTeam: number
 ): BalancedTeams[] {
 	const balancedTeams = generateTeams(
-		players,
+		shuffle(players),
 		maxSkillGap,
 		maxPlayersPerTeam || players.length / 2,
 		0,

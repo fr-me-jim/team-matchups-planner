@@ -1,3 +1,6 @@
+import { shuffle } from "lodash";
+
+// interfaces
 import type { Player } from "src/interfaces/Player.interfaces";
 import type { Team, MatchUp } from "src/interfaces/Tools.interfaces";
 
@@ -21,6 +24,8 @@ function teamMatchMaking(
 	index: number,
 	matchups: MatchUp[]
 ) {
+	if (matchups.length > 20) return;
+
 	if (index === players.length) {
 		// Check that the teams have at least players.length / 2 each.
 		const minPlayersPerTeam = Math.floor(players.length / 2);
@@ -74,7 +79,7 @@ export function generateAllMatchupsService(
 	if (players.length === 0) return [];
 
 	const matchups: MatchUp[] = [];
-	teamMatchMaking(players, maxSkillGap, [], [], 0, matchups);
+	teamMatchMaking(shuffle(players), maxSkillGap, [], [], 0, matchups);
 	return matchups.sort((prev, post) => prev.skillGap - post.skillGap);
 }
 

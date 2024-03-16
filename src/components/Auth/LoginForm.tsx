@@ -42,7 +42,7 @@ export default function LoginForm() {
 		try {
 			const user = await login({ email, password });
 			setCookie("session", user, { path: "/" });
-			router.push("/");
+			router.refresh();
 		} catch (error) {
 			return await errorPopupModalHandler(error as Error);
 		}
