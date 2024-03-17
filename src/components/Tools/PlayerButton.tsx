@@ -35,7 +35,7 @@ export default function PlayerButton({
 		<div
 			onClick={() => setSelected(!selected)}
 			className={`flex justify-between items-center app-btn-secondary select-player ${
-				selected && "selected"
+				selected ? "selected" : ""
 			} cursor-pointer md:grow-0 grow text-xl px-2 py-2 px-1`}
 		>
 			<p>{player.name}</p>
